@@ -1,5 +1,5 @@
 
-const Shared = () => {
+const Footer = () => {
     return (
         <div>
             
@@ -7,4 +7,4 @@ const Shared = () => {
     );
 };
 
-export default Shared;
+export default Footer;
