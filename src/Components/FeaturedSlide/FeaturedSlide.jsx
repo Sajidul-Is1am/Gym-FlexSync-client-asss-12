@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+// import { Pagination } from "swiper/modules";
 
 const FeaturedSlide = () => {
   return (
@@ -17,7 +17,7 @@ const FeaturedSlide = () => {
         autoplay={true}
         className="mySwiper"
       >
-        <SwiperSlide>
+        <SwiperSlide className="border-x-2">
           <img
             src="https://i.ibb.co/J7dgSkG/Preview-logo-03.png"
             alt=""
@@ -31,7 +31,7 @@ const FeaturedSlide = () => {
             className="w-[250px]"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="border-x-2">
           <img
             src="https://i.ibb.co/p03sjRc/Preview-logo-06.png"
             alt=""
@@ -45,21 +45,21 @@ const FeaturedSlide = () => {
             className="w-[250px]"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="border-x-2">
           <img
             src="https://i.ibb.co/VTF524h/Preview-logo-04.png"
             alt=""
             className="w-[250px]"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide >
           <img
             src="https://i.ibb.co/gPKppWF/Preview-logo-02.png"
             alt=""
             className="w-[250px]"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="border-x-2">
           <img
             src="https://i.ibb.co/VTF524h/Preview-logo-04.png"
             alt=""

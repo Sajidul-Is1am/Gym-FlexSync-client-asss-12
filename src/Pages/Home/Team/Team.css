@@ -1,0 +1,91 @@
+.teamBg{
+    background:url('https://i.ibb.co/fSFL8pr/squreshpae.png');
+    background-color: rgba(0, 0, 0, 0.861);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.teamCard {
+    position: relative;
+    background: radial-gradient(rgba(40, 45, 29, 0.314) 50%, rgba(154, 217, 8, 0.119) 100%);
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.teamCard img {
+    transform: scale(1);
+    transition: 0.3s ease-out;
+}
+
+.teamCard:hover img {
+    transform: scale(1.2) translateY(0px);
+    opacity: 0.3;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    
+    
+}
+
+.text-h1 {
+    margin-top: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #52F0B8;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all .3s ease-out;
+}
+
+.text-p {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all .3s ease-out 0.2s;
+}
+
+.link-a {
+    display: block;
+    background: none;
+    color: #fff;
+    border-radius: 50%;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all .3s ease-out 0.4s;
+    
+}
+
+.overlay:hover .link-a{
+     margin-top: 18px; 
+}
+
+.teamCard:hover .overlay .text-h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.teamCard:hover .overlay .text-p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.teamCard:hover .overlay .link-a {
+    opacity: 1;
+    transform: translateY(0);
+}
