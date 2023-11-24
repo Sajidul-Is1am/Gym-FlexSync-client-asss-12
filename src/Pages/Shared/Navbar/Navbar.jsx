@@ -1,12 +1,6 @@
-
 import { NavLink } from "react-router-dom";
 
-
-
 const Navbar = () => {
-
-
-
   const navItem = (
     <>
       <li>
@@ -30,17 +24,13 @@ const Navbar = () => {
       <li>
         <NavLink to={"/registration"}>Registration</NavLink>
       </li>
-      </>
-    );
-    
+    </>
+  );
 
-
-
-
-
-  return (
+    return (
+      
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar text-white py-6 mb-7">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -72,10 +62,11 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItem}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <a className="btn">Profile</a>
         </div>
       </div>
-    </div>
+        </div>
+        
   );
 };
 

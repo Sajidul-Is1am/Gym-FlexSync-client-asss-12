@@ -1,0 +1,14 @@
+.bannerImgRight{
+    background: url('https://i.ibb.co/ZgBsCyx/banner-bg-down.png');
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: cover;
+}
+.bannerImgLeft{
+    background: url('https://i.ibb.co/Bn9cdWM/service-bg-2.png');
+    /* background-image: linear-gradient(red, yellow); */
+    background-repeat: no-repeat;
+    background-position: left left;
+    background-size: cover;
+    color: rgba(255, 255, 255, 0.308);
+}

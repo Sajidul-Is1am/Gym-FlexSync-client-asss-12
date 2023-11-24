@@ -4,7 +4,7 @@ import Container from "../../Pages/Shared/Container";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="">
       <Container>
         <Navbar></Navbar>
       </Container>
