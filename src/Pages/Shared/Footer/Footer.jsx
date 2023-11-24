@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Container from "../Container";
+import { FaFacebookF, FaLinkedin, FaPhone, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -25,17 +27,28 @@ const Footer = () => {
             <a className="link link-hover">Health Challenges</a>
           </nav>
           <nav>
-            <header className="footer-title">Explore</header>
-            <a className="link link-hover">About Us</a>
-            <a className="link link-hover">Contact</a>
-            <a className="link link-hover">Join Our Team</a>
-            <a className="link link-hover">Press Releases</a>
+            <header className="footer-title">Address</header>
+            <p className="address">
+              Fitness Tracker HQ <br /> 123 Wellness Street Health <br /> City, Fitland ZIP:
+              12345
+            </p>
           </nav>
           <nav>
-            <header className="footer-title">Legal Stuff</header>
-            <a className="link link-hover">Terms of Service</a>
-            <a className="link link-hover">Privacy Policy</a>
-            <a className="link link-hover">Cookie Policy</a>
+            <header className="footer-title">Contact Us</header>
+            <div className="grid grid-flow-col gap-4">
+              <Link to={"/"}>
+                <FaFacebookF className="text-xl" />
+              </Link>
+              <Link to={"/"}>
+                <FaYoutube className="text-xl" />
+              </Link>
+              <Link to={"/"}>
+                <FaLinkedin className="text-xl" />
+              </Link>
+              <Link to={"/"}>
+                <FaPhone className="text-xl" />
+              </Link>
+            </div>
           </nav>
         </footer>
       </Container>
