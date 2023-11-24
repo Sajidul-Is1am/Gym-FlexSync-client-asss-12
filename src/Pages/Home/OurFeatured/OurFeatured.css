@@ -1,0 +1,4 @@
+.hoverEnimation:hover .eminItem {
+    margin-top: -8px;
+    transition: all linear 0.3s;
+}
