@@ -109,14 +109,14 @@
 
 .snip1543 h3 {
     font-family: "Teko", sans-serif;
-    font-size: 36px;
+    /* font-size: 36px; */
     font-weight: 700;
     line-height: 1em;
     text-transform: uppercase;
 }
 
 .snip1543 p {
-    font-size: 0.9em;
+    /* font-size: 0.9em; */
 }
 
 .snip1543 a {
@@ -130,7 +130,6 @@
 
 .snip1543:hover h3,
 .snip1543:hover p {
-    margin-top: 35px;
     -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 0.9;

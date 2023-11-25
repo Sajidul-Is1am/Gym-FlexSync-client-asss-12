@@ -16,14 +16,16 @@ const OurFeatured = () => {
           </div>
           <div className=" text-black mb-20">
             <div className="grid sm:grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 justify-between items-center my-20">
-              <h3 className="uppercase text-5xl font-bold italic text-secondary">
+              <h3 className="uppercase md:text-5xl text-3xl font-bold italic text-secondary">
                 PERSONAL TRAINING WILL WORK FOR YOU
               </h3>
               <div>
-                Discover the personalized approach to fitness with our expert
-                trainers. Whether you're a beginner or an experienced athlete,
-                we tailor our training to meet your unique goals and needs.
-                Start your journey today!
+                <p className="md:mt-0 mt-5">
+                  Discover the personalized approach to fitness with our expert
+                  trainers. Whether you're a beginner or an experienced athlete,
+                  we tailor our training to meet your unique goals and needs.
+                  Start your journey today!
+                </p>
               </div>
             </div>
             <div>

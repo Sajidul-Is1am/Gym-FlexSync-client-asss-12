@@ -12,10 +12,12 @@ const About = () => {
           subHeading={"About"}
           mainHeading={"Do something every day"}
         ></SectionTitle>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 justify-center items-center my-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 justify-center items-center md:my-16 my-10">
           <div className="space-y-6">
             <h6 className="font-semibold text-xl text-gray-700">Our Story</h6>
-            <h3 className="text-7xl font-bold pb-4">Who We Are?</h3>
+            <h3 className="lg:text-7xl md:text-5xl text-3xl font-bold pb-4">
+              Who We Are?
+            </h3>
             <p>
               At{" "}
               <span className="font-bold">
@@ -75,19 +77,21 @@ const About = () => {
                 className=""
                 alt="sample101"
               />
-              <figcaption>
-                  <h3>Where Innovation Meets Personalization</h3>
-                  <p>
-                    But Calvin is no kind and loving god! He's one of the old
-                    gods! He demands sacrifice!
-                  </p>
+              <figcaption className="md:space-y-5">
+                <h3 className="md:text-4xl text-xl">
+                  Where Innovation Meets Personalization
+                </h3>
+                <p className="md:text-lg text-sm md:text-white text-black">
+                  But Calvin is no kind and loving god! He's one of the old
+                  gods! He demands sacrifice!
+                </p>
               </figcaption>
               <a href="#"></a>
             </figure>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 py-20 items-center justify-between">
             <div className="space-y-4">
-              <h3 className="text-5xl font-bold pb-4 max-w-md uppercase italic">
+              <h3 className="md:text-5xl text-3xl font-bold md:pb-4 max-w-md uppercase italic">
                 Experience a different way to work out
               </h3>
               <p>

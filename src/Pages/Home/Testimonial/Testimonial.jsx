@@ -1,33 +1,250 @@
-// import "./Testimonial.css";
-// import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
-// import Container from "../../Shared/Container";
-// import { Swiper, SwiperSlide } from "swiper";
-// import "swiper/css";
+import { BiSolidQuoteLeft } from "react-icons/bi";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 
-// const Testimonial = () => {
-//   return (
-//     <div>
-//       <SectionTitle
-//         subHeading={"What Our Users Say"}
-//         mainHeading={"Testimonial"}
-//       ></SectionTitle>
-//       <Container>
-//         <div className="testimonialBg flex text-white">
-//           <Swiper navigation={true} modules={[NavigationPreloadManager]} className="mySwiper">
-//             <SwiperSlide>Slide 1</SwiperSlide>
-//             <SwiperSlide>Slide 2</SwiperSlide>
-//             <SwiperSlide>Slide 3</SwiperSlide>
-//             <SwiperSlide>Slide 4</SwiperSlide>
-//             <SwiperSlide>Slide 5</SwiperSlide>
-//             <SwiperSlide>Slide 6</SwiperSlide>
-//             <SwiperSlide>Slide 7</SwiperSlide>
-//             <SwiperSlide>Slide 8</SwiperSlide>
-//             <SwiperSlide>Slide 9</SwiperSlide>
-//           </Swiper>
-//         </div>
-//       </Container>
-//     </div>
-//   );
-// };
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import Container from "../../Shared/Container";
 
-// export default Testimonial;
+const Testimonials = () => {
+  return (
+    <div className="bg-gradient-to-r from-indigo-200 from-10% via-sky-200 via-30% to-emerald-200 to-95% ... py-2">
+      <Container>
+        <div className="md:mt-20 md:mb-32 mt-10 mb-20">
+          <SectionTitle
+            subHeading={"What Our Clients Say"}
+            mainHeading={"TESTIMONIALS"}
+          ></SectionTitle>
+          <div>
+            <Swiper
+              navigation={true}
+              modules={[Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <div className=" mx-24  text-center">
+                  <div className="avatar placeholder">
+                    <div className="bg-neutral text-neutral-content rounded-full w-16 my-4">
+                      <span className="text-xl">
+                        <img
+                          src="https://i.ibb.co/BqXC79J/Asset04.png"
+                          alt=""
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <h4 className="text-2xl text-secondary font-semibold">
+                    Joss Vatler
+                  </h4>
+                  <div className="rating rating-sm">
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                      checked
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                    totam quasi assumenda est atque similique dignissimos culpa
+                    dolor aperiam sapiente minus nulla impedit, neque veniam
+                    quod consectetur blanditiis dicta error voluptas tenetur
+                    ducimus adipisci? Laborum illo magnam, velit minus nihil
+                    ipsa nostrum libero itaque eaque aperiam culpa qui minima
+                    necessitatibus.
+                  </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className=" mx-24  text-center">
+                  <div className="avatar placeholder">
+                    <div className="bg-neutral text-neutral-content rounded-full w-16 my-4">
+                      <span className="text-xl">
+                        <img
+                          src="https://i.ibb.co/BqXC79J/Asset04.png"
+                          alt=""
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <h4 className="text-2xl text-secondary font-semibold">
+                    Joss Vatler
+                  </h4>
+                  <div className="rating rating-sm">
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                      checked
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                    totam quasi assumenda est atque similique dignissimos culpa
+                    dolor aperiam sapiente minus nulla impedit, neque veniam
+                    quod consectetur blanditiis dicta error voluptas tenetur
+                    ducimus adipisci? Laborum illo magnam, velit minus nihil
+                    ipsa nostrum libero itaque eaque aperiam culpa qui minima
+                    necessitatibus.
+                  </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className=" mx-24  text-center">
+                  <div className="avatar placeholder">
+                    <div className="bg-neutral text-neutral-content rounded-full w-16 my-4">
+                      <span className="text-xl">
+                        <img
+                          src="https://i.ibb.co/BqXC79J/Asset04.png"
+                          alt=""
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <h4 className="text-2xl text-secondary font-semibold">
+                    Joss Vatler
+                  </h4>
+                  <div className="rating rating-sm">
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                      checked
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                    totam quasi assumenda est atque similique dignissimos culpa
+                    dolor aperiam sapiente minus nulla impedit, neque veniam
+                    quod consectetur blanditiis dicta error voluptas tenetur
+                    ducimus adipisci? Laborum illo magnam, velit minus nihil
+                    ipsa nostrum libero itaque eaque aperiam culpa qui minima
+                    necessitatibus.
+                  </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className=" mx-24  text-center">
+                  <div className="avatar placeholder">
+                    <div className="bg-neutral text-neutral-content rounded-full w-16 my-4">
+                      <span className="text-xl">
+                        <img
+                          src="https://i.ibb.co/BqXC79J/Asset04.png"
+                          alt=""
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <h4 className="text-2xl text-secondary font-semibold">
+                    Joss Vatler
+                  </h4>
+                  <div className="rating rating-sm">
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                      checked
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-6"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                    totam quasi assumenda est atque similique dignissimos culpa
+                    dolor aperiam sapiente minus nulla impedit, neque veniam
+                    quod consectetur blanditiis dicta error voluptas tenetur
+                    ducimus adipisci? Laborum illo magnam, velit minus nihil
+                    ipsa nostrum libero itaque eaque aperiam culpa qui minima
+                    necessitatibus.
+                  </p>
+                </div>
+              </SwiperSlide>
+              
+            </Swiper>
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+export default Testimonials;
