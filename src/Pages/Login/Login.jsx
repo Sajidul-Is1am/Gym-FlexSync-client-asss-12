@@ -1,16 +1,33 @@
 import "../Registration/Registration.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 const Login = () => {
+  const navigate = useNavigate()
+
+  const { handleLogin } = useAuth();
+
   const [isTrue, setTrue] = useState(true);
   const handlePassEye = () => {
     setTrue(!isTrue);
   };
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    handleLogin(data.email, data.password)
+      .then((res) => {
+        console.log(res.user);
+        navigate('/')
+        toast.success("Successfully Login!");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    console.log(data);
+  };
   return (
     <div className="registrationBg grid justify-center items-center lg:h-screen">
       <form

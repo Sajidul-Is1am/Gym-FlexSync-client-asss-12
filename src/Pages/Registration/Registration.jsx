@@ -1,16 +1,53 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Registration.css";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+
 const Registration = () => {
+  const navigate = useNavigate();
+  const  axiosSecure  = useAxiosSecure();
+
+  const { handleRegistration, profileUpdate } = useAuth();
+
   const [isTrue, setTrue] = useState(true);
   const handlePassEye = () => {
-      setTrue(!isTrue);
+    setTrue(!isTrue);
   };
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const userInfo = {
+      email: data?.email,
+      username: data?.username,
+      image: data?.image,
+    };
+    // console.log(data);
+    handleRegistration(data?.email, data?.password)
+      .then((res) => {
+        profileUpdate(data?.username, data?.image)
+          .then(() => {
+            console.log("profile Updated");
+            navigate("/");
+            toast.success("Successfully Registration!");
+            // store data userInfo on databse
+            axiosSecure.post("/user", userInfo).then((res) => {
+              console.log(res.data);
+              toast.success("Store data on Database!");
+            });
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="registrationBg grid justify-center items-center lg:h-screen">
       <form
