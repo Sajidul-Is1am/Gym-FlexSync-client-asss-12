@@ -18,7 +18,7 @@ const Registration = () => {
     setTrue(!isTrue);
   };
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,} = useForm();
   const onSubmit = (data) => {
     const userInfo = {
       email: data?.email,
@@ -36,14 +36,14 @@ const Registration = () => {
             // store data userInfo on databse
             axiosSecure.post("/user", userInfo).then((res) => {
               console.log(res.data);
-              toast.success("Store data on Database!");
             });
           })
           .catch((error) => {
             console.log(error.message);
           });
-      })
-      .catch((error) => {
+        })
+        .catch((error) => {
+        toast.success(error.message);
         console.log(error.message);
       });
   };
@@ -63,7 +63,7 @@ const Registration = () => {
           <h4 className="text-3xl font-bold text-white">Registration</h4>
         </div>
         <label className="text-white mt-3 mb-1">User Name</label>
-        <input className="input" {...register("username")} />
+        <input className="input" {...register("username")}/>
         <label className="text-white mt-3 mb-1">Upload Photo</label>
         <input className="input" {...register("image")} />
         <label className="text-white mt-3 mb-1">E-mail</label>
@@ -82,7 +82,7 @@ const Registration = () => {
             {isTrue ? <FaEyeSlash /> : <FaEye />}
           </div>
         </div>
-        <input className="input mt-5" type="submit" />
+        <input className="input mt-5 cursor-pointer" type="submit" />
         <h5 className="text-xl text-white mt-2">
           Alreay Have Accound?{" "}
           <Link to={"/login"} className="text-secondary">
