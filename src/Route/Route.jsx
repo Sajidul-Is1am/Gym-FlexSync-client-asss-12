@@ -4,7 +4,9 @@ import Home from "../Pages/Home/Home/Home";
 import Registration from "../Pages/Registration/Registration";
 import Login from "../Pages/Login/Login";
 import Gellary from "../Pages/Gellary/Gellary";
-import Trainer from "../Pages/Trainer/Trainer";
+import Trainer from "../Pages/Trainer/Trainer/Trainer";
+import TrainerDetails from "../Pages/Trainer/TrainerDetails/TrainerDetails";
+import ApplyTrainer from "../Pages/Trainer/ApplyTrainer/ApplyTrainer";
 
 const Route = createBrowserRouter([
   {
@@ -29,7 +31,15 @@ const Route = createBrowserRouter([
       },
       {
         path: "/trainer",
-        element:<Trainer></Trainer>
+        element: <Trainer></Trainer>,
+      },
+      {
+        path: "/user/trainerprofile/:id",
+        element: <TrainerDetails></TrainerDetails>,
+      },
+      {
+        path: '/user/applytrainer',
+        element:<ApplyTrainer></ApplyTrainer>
       }
     ],
   },

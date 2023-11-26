@@ -2,16 +2,21 @@
 import { FaFacebook, FaPhoneVolume, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Trainer.css";
-import "../Home/Team/Team.css";
+import '../../Home/Team/Team.css';
 import { GiSkills } from "react-icons/gi";
+// import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+// import { useQuery } from "@tanstack/react-query";
+// import { useEffect } from "react";
 
 const TrainerCard = ({ trainer }) => {
-    const { availableSlots, experience, image ,name} = trainer;
+    const { availableSlots, experience, image, name, _id } = trainer;
+
+  
   return (
     <div>
       <div>
         <div className="teamCard relative">
-          <img src="https://i.ibb.co/sC3h5nv/Team-01.png" alt="" />
+          <img src={image} alt="" />
           <div className="overlay">
             <h1 className="text-h1">{name} </h1>
             <h1 className="absolute top-0 right-0 bg-secondary p-2">
@@ -19,7 +24,7 @@ const TrainerCard = ({ trainer }) => {
                 <GiSkills className="text-secondary" />
                 exp:
               </span>
-              {experience}Year's
+              {experience} Year's
             </h1>
             <a className="link-a">Owner & Trainner</a>
 
@@ -54,7 +59,7 @@ const TrainerCard = ({ trainer }) => {
             </div>
           </div>
         </div>
-        <Link className="cursor-pointer" to={"/"}>
+        <Link className="cursor-pointer" to={`/user/trainerprofile/${_id}`}>
           <div className="trainerBottomInfo cursor-pointer">
             <h4 className="text-2xl font-bold w-full bg-secondary rounded text-center btn text-white">
               Know More
