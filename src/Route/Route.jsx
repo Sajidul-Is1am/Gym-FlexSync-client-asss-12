@@ -3,6 +3,8 @@ import MainLayout from "../Layout/MainLayout/MainLayout";
 import Home from "../Pages/Home/Home/Home";
 import Registration from "../Pages/Registration/Registration";
 import Login from "../Pages/Login/Login";
+import Gellary from "../Pages/Gellary/Gellary";
+import Trainer from "../Pages/Trainer/Trainer";
 
 const Route = createBrowserRouter([
   {
@@ -18,8 +20,16 @@ const Route = createBrowserRouter([
         element: <Registration></Registration>,
       },
       {
-        path: '/login',
-        element:<Login></Login>
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/gellery",
+        element: <Gellary></Gellary>,
+      },
+      {
+        path: "/trainer",
+        element:<Trainer></Trainer>
       }
     ],
   },
