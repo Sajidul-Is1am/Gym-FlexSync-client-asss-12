@@ -3,9 +3,13 @@ import { key } from "localforage";
 import { FaDumbbell } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const PackageCard = ({ pack }) => {
   const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
 
   const { name, image, joinNowButtonText, features, facilities, _id } = pack;
 
@@ -13,8 +17,23 @@ const PackageCard = ({ pack }) => {
   delete newPack._id;
 
   const handleJoinNow = () => {
-    axiosSecure.post("/user/selectedpack", newPack).then((res) => {
-      console.log(res.data);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to Join This",
+      icon: "success",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Join!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .put(`/user/selectedpack?name=${name}`, newPack)
+          .then((res) => {
+            console.log(res.data);
+            toast.success("succesfully Joined this class");
+          });
+      }
     });
   };
   return (

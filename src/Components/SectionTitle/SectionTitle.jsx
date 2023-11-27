@@ -1,3 +1,5 @@
+
+/* eslint-disable react/prop-types */
 const SectionTitle = ({ subHeading, mainHeading }) => {
   return (
     <div className="py-8 space-y-5">

@@ -25,6 +25,7 @@ const ApplyTrainer = () => {
   const onSubmit = async (data) => {
     const d = new FormData();
     d.append("image", data.image[0]);
+    console.log(data);
 
     const res = await axiosPublic.post(image_hosting_api, d);
     console.log(res.data.data.display_url);

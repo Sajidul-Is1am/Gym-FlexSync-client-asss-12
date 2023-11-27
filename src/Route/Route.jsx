@@ -8,6 +8,8 @@ import Trainer from "../Pages/Trainer/Trainer/Trainer";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails/TrainerDetails";
 import ApplyTrainer from "../Pages/Trainer/ApplyTrainer/ApplyTrainer";
 import Booked from "../Pages/Trainer/Booked/Booked";
+import Classes from "../Pages/Classes/Classes/Classes";
+import ClassDetails from "../Pages/Classes/ClassDetails/ClassDetails";
 
 const Route = createBrowserRouter([
   {
@@ -39,13 +41,21 @@ const Route = createBrowserRouter([
         element: <TrainerDetails></TrainerDetails>,
       },
       {
-        path: '/user/applytrainer',
-        element: <ApplyTrainer></ApplyTrainer>
+        path: "/user/applytrainer",
+        element: <ApplyTrainer></ApplyTrainer>,
       },
       {
-        path: 'user/booked',
-        element:<Booked></Booked>
-    }
+        path: "user/booked",
+        element: <Booked></Booked>,
+      },
+      {
+        path: "/classes",
+        element: <Classes></Classes>,
+      },
+      {
+        path: "/classes/:id",
+        element:<ClassDetails></ClassDetails>
+      },
     ],
   },
 ]);
