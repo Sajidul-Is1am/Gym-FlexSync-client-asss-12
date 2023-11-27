@@ -1,21 +1,45 @@
-import { Link, useNavigate } from "react-router-dom";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
-import './ApplyTrainer.css'
+import "./ApplyTrainer.css";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ApplyTrainer = () => {
   const { register, handleSubmit } = useForm();
   const { user } = useAuth();
-  // const navigate = useNavigate();
-  // const axiosSecure = useAxiosSecure();
-  const onSubmit = (data) => {
-    const userInfo = {
-      email: data?.email,
-      username: data?.username,
-      image: data?.image,
-    };
+
+  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
+
+  const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+  const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+
+  const onSubmit = async (data) => {
+    const d = new FormData();
+    d.append("image", data.image[0]);
+
+    const res = await axiosPublic.post(image_hosting_api, d);
+    console.log(res.data.data.display_url);
+    console.log(data);
+    const applerInfo = {
+      fullname: data.fullname,
+      email: user?.email,
+      age: data.age,
+      image: data.image,
+      skill: data.skill,
+      day: data.day,
+      week: data.week,
+      others: data.others,
+      };
+      
+
+    axiosSecure.post("/user/applytrainer", applerInfo).then((res) => {
+      console.log(res.data);
+    });
+      
+      
   };
+
   return (
     <div className="bg-black bg-gradient-to-r from-indigo-200 from-10% via-sky-200 via-30% to-emerald-200 to-95% ...">
       <div className="applyBg">
@@ -26,13 +50,13 @@ const ApplyTrainer = () => {
       <div className=" grid justify-center items-center">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="  px-14 py-8 h-auto glass m-8 w-full"
+          className="  px-14 py-16 h-auto glass m-8 w-full"
         >
           <div className="grid grid-cols-2 gap-6">
             <input
               placeholder="Full Name"
               className="input"
-              {...register("username")}
+              {...register("fullname")}
             />
             <input
               defaultValue={user?.email}
@@ -49,6 +73,7 @@ const ApplyTrainer = () => {
             <input
               placeholder="Profile Image"
               className="input w-full"
+              type="file"
               {...register("image")}
             />
             <input

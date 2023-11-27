@@ -34,7 +34,7 @@ const Trainer = () => {
     <div className="bg-gray-200 py-10">
       <Container>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
-          {data.data.slice(0,4).map(trainer => <TrainerCard key={trainer._id} trainer={trainer}></TrainerCard> )}
+          {data.data.map(trainer => <TrainerCard key={trainer._id} trainer={trainer}></TrainerCard> )}
         </div>
         <div>
           <BeATrainer></BeATrainer>
