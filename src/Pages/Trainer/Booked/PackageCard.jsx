@@ -2,15 +2,21 @@
 import { key } from "localforage";
 import { FaDumbbell } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const PackageCard = ({ pack }) => {
-    const { name, image, joinNowButtonText, features, facilities,_id } = pack;
-    // console.log(features,facilities,name,image,joinNowButtonText,features);
-    const newPack = { ...pack }
-    delete newPack._id
-    const handleJoinNow = () => {
-        
-    }
+  const axiosSecure = useAxiosSecure();
+
+  const { name, image, joinNowButtonText, features, facilities, _id } = pack;
+
+  const newPack = { ...pack };
+  delete newPack._id;
+
+  const handleJoinNow = () => {
+    axiosSecure.post("/user/selectedpack", newPack).then((res) => {
+      console.log(res.data);
+    });
+  };
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl flex h-full ">
@@ -30,17 +36,22 @@ const PackageCard = ({ pack }) => {
           <div className="collapse">
             <input type="checkbox" />
             <div className=" collapse-title font-bold gap-3  uppercase flex items-center">
-              facilities 
+              facilities
               <FaChevronRight className="text-red-600" />
             </div>
             <div className="collapse-content">
-                          <div>
-                              {facilities.map((item, index) => <li key={index}> { item} </li> )}
+              <div>
+                {facilities.map((item, index) => (
+                  <li key={index}> {item} </li>
+                ))}
               </div>
             </div>
           </div>
           <div className="card-actions justify-end">
-            <button onClick={handleJoinNow} className="btn btn-outline btn-success">
+            <button
+              onClick={handleJoinNow}
+              className="btn btn-outline btn-success"
+            >
               {joinNowButtonText}
             </button>
           </div>
