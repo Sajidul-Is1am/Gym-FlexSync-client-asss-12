@@ -7,6 +7,7 @@ import Gellary from "../Pages/Gellary/Gellary";
 import Trainer from "../Pages/Trainer/Trainer/Trainer";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails/TrainerDetails";
 import ApplyTrainer from "../Pages/Trainer/ApplyTrainer/ApplyTrainer";
+import Booked from "../Pages/Trainer/Booked/Booked";
 
 const Route = createBrowserRouter([
   {
@@ -39,8 +40,12 @@ const Route = createBrowserRouter([
       },
       {
         path: '/user/applytrainer',
-        element:<ApplyTrainer></ApplyTrainer>
-      }
+        element: <ApplyTrainer></ApplyTrainer>
+      },
+      {
+        path: 'user/booked',
+        element:<Booked></Booked>
+    }
     ],
   },
 ]);

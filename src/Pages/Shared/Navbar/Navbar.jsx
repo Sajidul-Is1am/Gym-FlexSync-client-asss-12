@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Container from "../Container";
 import useAuth from "../../../Hooks/useAuth";
 
@@ -27,7 +27,7 @@ const Navbar = () => {
       </li>
       {user ? (
         <li className="md:flex hidden" onClick={logOut}>
-          <NavLink>LogOut</NavLink>
+          <Link>LogOut</Link>
         </li>
       ) : (
         <li className="md:flex hidden">
@@ -75,7 +75,7 @@ const Navbar = () => {
             </a>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{navItem}</ul>
+            <ul className="menu menu-horizontal px-1 font-semibold">{navItem}</ul>
           </div>
           <div className="hidden md:flex navbar-end">
             <div className="avatar  placeholder">
@@ -110,7 +110,7 @@ const Navbar = () => {
                   </li>
                   {user ? (
                     <li className="text-secondary" onClick={logOut}>
-                      <NavLink>LogOut</NavLink>
+                      <Link>LogOut</Link>
                     </li>
                   ) : (
                     <li>

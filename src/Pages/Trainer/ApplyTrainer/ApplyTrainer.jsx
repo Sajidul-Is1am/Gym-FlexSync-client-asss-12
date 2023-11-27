@@ -3,10 +3,18 @@ import useAuth from "../../../Hooks/useAuth";
 import "./ApplyTrainer.css";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const ApplyTrainer = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
@@ -30,14 +38,16 @@ const ApplyTrainer = () => {
       day: data.day,
       week: data.week,
       others: data.others,
-      };
-      
+    };
 
-    axiosSecure.post("/user/applytrainer", applerInfo).then((res) => {
-      console.log(res.data);
-    });
-      
-      
+    axiosSecure
+      .put(`/user/applytrainer?email=${user.email}`, applerInfo)
+      .then((res) => {
+        console.log(res.data);
+        toast.success("Appled Complete");
+        reset();
+        navigate("/");
+      });
   };
 
   return (
@@ -53,49 +63,103 @@ const ApplyTrainer = () => {
           className="  px-14 py-16 h-auto glass m-8 w-full"
         >
           <div className="grid grid-cols-2 gap-6">
-            <input
-              placeholder="Full Name"
-              className="input"
-              {...register("fullname")}
-            />
-            <input
-              defaultValue={user?.email}
-              readOnly
-              className="input"
-              {...register("email")}
-            />
-            <input
-              placeholder="Age"
-              type="number"
-              className="input"
-              {...register("age")}
-            />
-            <input
-              placeholder="Profile Image"
-              className="input w-full"
-              type="file"
-              {...register("image")}
-            />
-            <input
-              placeholder="You Skill"
-              className="input w-full" // TODO : Need chackbox
-              {...register("skill")}
-            />
-            <input
-              placeholder="Available Time in a week"
-              className="input w-full"
-              {...register("week")}
-            />
-            <input
-              placeholder="Available time in a day"
-              className="input w-full"
-              {...register("day")}
-            />
-            <input
-              placeholder="others"
-              className="input w-full" //TODO:
-              {...register("others")}
-            />
+            <div className="grid grid-cols-1">
+              <input
+                placeholder="Full Name"
+                className="input"
+                {...register("fullname", { required: true })}
+              />
+              {errors.fullname && (
+                <span className="text-rose-600 font-bold">
+                  This field is required
+                </span>
+              )}
+            </div>
+            <div className="grid grid-cols-1">
+              <input
+                defaultValue={user?.email}
+                readOnly
+                className="input"
+                {...register("email", { required: true })}
+              />
+            </div>
+            <div className="grid grid-cols-1">
+              <input
+                placeholder="Age"
+                type="number"
+                className="input"
+                {...register("age", { required: true })}
+              />
+              {errors.age && (
+                <span className="text-rose-600 font-bold">
+                  This field is required
+                </span>
+              )}
+            </div>
+
+            <div className="grid grid-cols-1">
+              <input
+                placeholder="Profile Image"
+                className="input file-input file-input-bordered file-input-accent w-full"
+                              type="file"
+                {...register("image", { required: true })}
+              />
+              {errors.image && (
+                <span className="text-rose-600 font-bold">
+                  This field is required
+                </span>
+              )}
+            </div>
+
+            <div className="grid grid-cols-1">
+              <input
+                placeholder="You Skill"
+                className="input w-full" // TODO : Need chackbox
+                {...register("skill", { required: true })}
+              />
+              {errors.skill && (
+                <span className="text-rose-600 font-bold">
+                  This field is required
+                </span>
+              )}
+            </div>
+            <div className="grid grid-cols-1">
+              <input
+                placeholder="Available Time in a week"
+                className="input w-full"
+                {...register("week", { required: true })}
+              />
+              {errors.week && (
+                <span className="text-rose-600 font-bold">
+                  This field is required
+                </span>
+              )}
+            </div>
+            <div className="grid grid-cols-1">
+              <input
+                placeholder="Available time in a day"
+                className="input w-full"
+                {...register("day", { required: true })}
+              />
+              {errors.day && (
+                <span className="text-rose-600 font-bold">
+                  This field is required
+                </span>
+              )}
+            </div>
+            <div className="grid grid-cols-1">
+              <input
+                placeholder="others"
+                className="input w-full" //TODO:
+                {...register("others", { required: true })}
+              />
+              {errors.others && (
+                <span className="text-rose-600 font-bold">
+                  This field is required
+                </span>
+              )}
+            </div>
+
             <input
               className="input mt-5 cursor-pointer col-span-2"
               type="submit"

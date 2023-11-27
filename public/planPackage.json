@@ -1,0 +1,50 @@
+[{
+        "name": "Silver Plan",
+        "features": [
+            "Access to Basic Fitness Classes",
+            "Personalized Workout Plans",
+            "Weekly Progress Tracking",
+            "Nutrition Guidance",
+            "Community Forum Access"
+        ],
+        "facilities": [
+            "Basic Gym Equipment Usage",
+            "Online Class Access"
+        ],
+        "image": "https://i.ibb.co/XfB407Y/Fitness-1-1.jpg",
+        "joinNowButtonText": "Join Now for Silver Plan"
+    },
+    {
+        "name": "Gold Plan",
+        "features": [
+            "All Silver Plan Features",
+            "Advanced Fitness Classes",
+            "Monthly Fitness Assessments",
+            "Personal Trainer Consultations (Online/Offline)",
+            "Exclusive Webinars and Workshops"
+        ],
+        "facilities": [
+            "Access to Premium Gym Facilities",
+            "Priority Booking for Classes"
+        ],
+        "image": "https://i.ibb.co/4KWKLTN/FC2.jpg",
+        "joinNowButtonText": "Join Now for Gold Plan"
+    },
+    {
+        "name": "Diamond Plan",
+        "features": [
+            "All Gold Plan Features",
+            "Unlimited Access to All Classes",
+            "24/7 Chat Support with Trainers",
+            "Customized Diet Plans",
+            "VIP Events and Workshops"
+        ],
+        "facilities": [
+            "VIP Gym Access",
+            "Premium Workout Gear",
+            "Personalized Fitness App"
+        ],
+        "image": "https://i.ibb.co/t3Gp0m3/1606874875321.jpg",
+        "joinNowButtonText": "Join Now for Diamond Plan"
+    }
+]

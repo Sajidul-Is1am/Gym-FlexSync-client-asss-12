@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { FaFacebook, FaPhoneVolume, FaTwitter } from "react-icons/fa";
+import { FaDownload, FaFacebook, FaPhoneVolume, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Trainer.css";
 import '../../Home/Team/Team.css';
@@ -52,11 +52,12 @@ const TrainerCard = ({ trainer }) => {
                 </Link>
               </div>
             </a>
-            <div className="absolute overflow-ellipsis">
-              <h4 className="text-2xl   font-bold p-2 bg-blue-950 rounded  text-white">
-                Avilable Slot : {availableSlots}
-              </h4>
-            </div>
+            <Link to={"/user/booked"}>
+              <div className="absolute flex text-2xl gap-2   font-bold p-2 bg-blue-950 rounded  text-white">
+                <h4 className="">Avilable Slot</h4>
+                <FaDownload className="text-yellow-500"></FaDownload>
+              </div>
+            </Link>
           </div>
         </div>
         <Link className="cursor-pointer" to={`/user/trainerprofile/${_id}`}>
