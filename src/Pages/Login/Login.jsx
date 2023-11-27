@@ -5,10 +5,17 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
-const Login = () => {
-  const navigate = useNavigate()
+import { FcGoogle } from "react-icons/fc";
 
-  const { handleLogin } = useAuth();
+const Login = () => {
+  const navigate = useNavigate();
+
+  const { handleLogin, handleGoogleLogin } = useAuth();
+  const handleGoogle = () => {
+    handleGoogleLogin();
+    toast.success("succesfully Login");
+    navigate('/')
+  };
 
   const [isTrue, setTrue] = useState(true);
   const handlePassEye = () => {
@@ -20,13 +27,12 @@ const Login = () => {
     handleLogin(data.email, data.password)
       .then((res) => {
         console.log(res.user);
-        navigate('/')
+        navigate("/");
         toast.success("Successfully Login!");
       })
       .catch((error) => {
         console.log(error.message);
         toast.error(error.message);
-
       });
     console.log(data);
   };
@@ -34,7 +40,7 @@ const Login = () => {
     <div className="registrationBg grid justify-center items-center lg:h-screen">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 formGlass p-16 lg:min-w-[500px]  lg:my-10"
+        className="grid grid-cols-1 formGlass p-16  lg:min-w-[500px]  lg:mt-10"
       >
         <div>
           <img
@@ -68,6 +74,12 @@ const Login = () => {
           </Link>
         </h5>
       </form>
+      <button
+        onClick={handleGoogle}
+        className="btn btn-outline btn-accent text-2xl "
+      >
+        Google <FcGoogle className="text-3xl" />
+      </button>
     </div>
   );
 };
