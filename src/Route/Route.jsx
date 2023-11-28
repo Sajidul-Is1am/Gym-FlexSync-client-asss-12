@@ -17,11 +17,13 @@ import AllTrainer from "../Pages/DashBoard/AllTrainer/AllTrainer";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import PrivetRoute from "./PrivetRoute";
 import DashApplyTrainer from "../Pages/DashBoard/DashApplyTrainer/DashApplyTrainer";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const Route = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -45,7 +47,11 @@ const Route = createBrowserRouter([
       },
       {
         path: "/user/trainerprofile/:id",
-        element: <TrainerDetails></TrainerDetails>,
+        element: (
+          <PrivetRoute>
+            <TrainerDetails></TrainerDetails>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/user/applytrainer",
@@ -100,7 +106,7 @@ const Route = createBrowserRouter([
       },
       {
         path: "/dashboard/appliedtrainer",
-        element:<DashApplyTrainer></DashApplyTrainer>
+        element: <DashApplyTrainer></DashApplyTrainer>,
       },
     ],
   },

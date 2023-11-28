@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../../Hooks/useAdmin";
+import { Helmet } from "react-helmet";
 
 const DashBoardLayout = () => {
   const [isAdmin, isAdminLoading, refetch] = useAdmin();
@@ -19,6 +20,9 @@ const DashBoardLayout = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>DashBoard || FlexSync</title>
+      </Helmet>
       <div className="grid grid-cols-12 min-h-screen">
         <div className="col-span-3 bg-base-200">
           <div className="drawer lg:drawer-open">
@@ -57,7 +61,9 @@ const DashBoardLayout = () => {
                       <Link to={"/dashboard/alltrainer"}>All Trainer</Link>
                     </li>
                     <li className="bg-gray-300 rounded">
-                      <Link to={"/dashboard/appliedtrainer"}>Applied Trainer</Link>
+                      <Link to={"/dashboard/appliedtrainer"}>
+                        Applied Trainer
+                      </Link>
                     </li>
                   </>
                 ) : (

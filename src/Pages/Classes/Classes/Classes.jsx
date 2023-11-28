@@ -4,7 +4,7 @@ import Container from "../../Shared/Container";
 import "./Classes.css";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import ClassCard from "../ClassCard/ClassCard";
-
+import { Helmet } from "react-helmet";
 const Classes = () => {
     const axiosSecure = useAxiosSecure()
     const { data,isLoading } = useQuery({
@@ -16,6 +16,9 @@ const Classes = () => {
     })
   return (
     <div>
+      <Helmet>
+        <title>Classes || FlexSync</title>
+      </Helmet>
       <div className="classPageBg">
         <h3 className="text-5xl font-bold text-center text-white">
           Our Specialized <span className="text-secondary">Classes</span>

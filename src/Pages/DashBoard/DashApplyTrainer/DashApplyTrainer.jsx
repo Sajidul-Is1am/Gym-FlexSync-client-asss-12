@@ -29,19 +29,21 @@ const DashApplyTrainer = () => {
               <table className="table">
                 {/* head */}
                 <thead>
-                  <tr className="grid grid-cols-4 justify-center bg-blue-600 rounded text-white">
+                  <tr className="grid grid-cols-5 justify-center bg-blue-600 rounded text-white">
                     <th>Name</th>
                     <th>Email </th>
                     <th className="">Age </th>
+                    <th className="">Status </th>
                     <th className="">Action </th>
                   </tr>
                 </thead>
                 <tbody>
                   {data?.data?.map((item, index) => (
-                    <tr key={index} className=" grid grid-cols-4 ">
+                    <tr key={index} className=" grid grid-cols-5 ">
                       <td>{item.fullname}</td>
                       <td className="">{item.email}</td>
                       <td className="">{item.age}</td>
+                      <td className="">Pending</td>
                       <td className=" text-2xl">
                         <HiEye
                           onClick={() =>
@@ -61,7 +63,7 @@ const DashApplyTrainer = () => {
                             <div className="card-body">
                               <h2 className="card-title">{item.fullname}</h2>
                               <p>Sill : {item.skill}</p>
-                              <p>Age : {item.skill}</p>
+                              <p>Age : {item.age}</p>
                               <div className="card-actions justify-end">
                                 <button className="btn btn-primary">
                                   Confirm

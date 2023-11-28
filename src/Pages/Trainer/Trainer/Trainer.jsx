@@ -6,6 +6,8 @@ import Container from "../../Shared/Container";
 import TrainerCard from "./TrainerCard";
 import BeATrainer from "../BeATrainer/BeATrainer";
 import useTrainerProfile from "../../../Hooks/useTrainerProfile";
+import { Helmet } from "react-helmet";
+
 
 const Trainer = () => {
   const [data,isLoading,refetch] = useTrainerProfile()
@@ -29,6 +31,9 @@ const Trainer = () => {
   }
   return (
     <div className="bg-gray-200 py-10">
+      <Helmet>
+        <title>Trainer || FlexSync</title>
+      </Helmet>
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
           {data?.data?.map((trainer) => (
