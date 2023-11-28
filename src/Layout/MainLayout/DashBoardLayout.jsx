@@ -1,7 +1,22 @@
 import { Link, Outlet } from "react-router-dom";
+import useAdmin from "../../Hooks/useAdmin";
 
 const DashBoardLayout = () => {
-  const admin = true;
+  const [isAdmin, isAdminLoading, refetch] = useAdmin();
+
+  // const role = isAdmin?.data?.role;
+
+  // if (isAdminLoading) {
+  //   <span className="loading loading-dots loading-lg text-8xl flex justify-center items-center h-screen mx-auto"></span>;
+  // }
+  // if (!role) {
+  //   return (
+  //     <span className="loading loading-dots loading-lg text-8xl flex justify-center items-center h-screen mx-auto"></span>
+  //   );
+  // }
+
+
+
   return (
     <div className="">
       <div className="grid grid-cols-12 min-h-screen">
@@ -25,10 +40,13 @@ const DashBoardLayout = () => {
               ></label>
               <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content space-y-2">
                 {/* Sidebar content here */}
-                {admin ? (
+                {isAdmin?.data?.role === "admin" ? (
                   <>
                     <li className="bg-gray-300 rounded">
                       <Link to={"/dashboard"}>Admin Home</Link>
+                    </li>
+                    <li className="bg-gray-300 rounded">
+                      <Link to={"/dashboard/allusers"}>All User</Link>
                     </li>
                     <li className="bg-gray-300 rounded">
                       <Link to={"/dashboard/allsubscriber"}>

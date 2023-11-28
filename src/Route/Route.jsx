@@ -14,6 +14,8 @@ import DashBoardLayout from "../Layout/MainLayout/DashBoardLayout";
 import DashHome from "../Pages/DashBoard/DashHome/DashHome";
 import AllSubscribe from "../Pages/DashBoard/AllSubscribe/AllSubscribe";
 import AllTrainer from "../Pages/DashBoard/AllTrainer/AllTrainer";
+import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
+import PrivetRoute from "./PrivetRoute";
 
 const Route = createBrowserRouter([
   {
@@ -46,11 +48,20 @@ const Route = createBrowserRouter([
       },
       {
         path: "/user/applytrainer",
-        element: <ApplyTrainer></ApplyTrainer>,
+        element: (
+          <PrivetRoute>
+            <ApplyTrainer></ApplyTrainer>
+          </PrivetRoute>
+        ),
       },
       {
         path: "user/booked",
-        element: <Booked></Booked>,
+        element: (
+          <PrivetRoute>
+            {" "}
+            <Booked></Booked>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/classes",
@@ -64,7 +75,11 @@ const Route = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashBoardLayout></DashBoardLayout>,
+    element: (
+      <PrivetRoute>
+        <DashBoardLayout></DashBoardLayout>
+      </PrivetRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -75,9 +90,13 @@ const Route = createBrowserRouter([
         element: <AllSubscribe></AllSubscribe>,
       },
       {
-        path: '/dashboard/alltrainer',
-        element:<AllTrainer></AllTrainer>
-      }
+        path: "/dashboard/alltrainer",
+        element: <AllTrainer></AllTrainer>,
+      },
+      {
+        path: "/dashboard/allusers",
+        element: <AllUsers></AllUsers>,
+      },
     ],
   },
 ]);

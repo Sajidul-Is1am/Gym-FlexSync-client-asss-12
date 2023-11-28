@@ -13,18 +13,24 @@ const Navbar = () => {
       <li>
         <NavLink to={"/gellery"}>Gallery</NavLink>
       </li>
-      <li>
-        <NavLink to={"/trainer"}>Trainer</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to={"/trainer"}>Trainer</NavLink>
+        </li>
+      )}
       <li>
         <NavLink to={"/classes"}>Classes</NavLink>
       </li>
-      <li>
-        <NavLink to={"/dashboard"}>Dashboard</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/forums"}>Forums</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to={"/dashboard"}>Dashboard</NavLink>
+        </li>
+      )}
+      {user && (
+        <li>
+          <NavLink to={"/forums"}>Forums</NavLink>
+        </li>
+      )}
       {user ? (
         <li className="md:flex hidden" onClick={logOut}>
           <Link>LogOut</Link>
