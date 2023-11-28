@@ -16,6 +16,7 @@ import AllSubscribe from "../Pages/DashBoard/AllSubscribe/AllSubscribe";
 import AllTrainer from "../Pages/DashBoard/AllTrainer/AllTrainer";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import PrivetRoute from "./PrivetRoute";
+import DashApplyTrainer from "../Pages/DashBoard/DashApplyTrainer/DashApplyTrainer";
 
 const Route = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ const Route = createBrowserRouter([
       {
         path: "/dashboard/allusers",
         element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "/dashboard/appliedtrainer",
+        element:<DashApplyTrainer></DashApplyTrainer>
       },
     ],
   },

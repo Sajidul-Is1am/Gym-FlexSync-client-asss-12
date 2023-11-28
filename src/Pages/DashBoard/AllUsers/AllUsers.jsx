@@ -1,34 +1,55 @@
-import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import DashTitle from "../DashTitle/DashTitle";
 import useAdmin from "../../../Hooks/useAdmin";
 import useAllUsers from "../../../Hooks/useAllUsers";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
-  const[ isAdmin] = useAdmin();
+  const { user } = useAuth()
+  const [isAdmin] = useAdmin();
   console.log(isAdmin?.data?.role);
   const axiosSecure = useAxiosSecure();
   const [users, refetch, isPending] = useAllUsers();
   const handleUserRole = (email) => {
-    axiosSecure.patch(`/dashboard/admin/${email}`).then((res) => {
-      console.log(res.data);
-      refetch();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't to Make Admin",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Make Admin?",
+    }).then((result) => {
+      if (result.isConfirmed) {
+         axiosSecure.patch(`/dashboard/admin/${email}`).then((res) => {
+           console.log(res.data);
+           refetch();
+           Swal.fire({
+             title: "Now She/He Admin",
+             text: "This User Is Admin",
+             icon: "success",
+           });
+         });
+        
+      }
     });
+   
   };
-//   const role = isAdmin?.data?.role;
-//   if (role) {
-//     return (
-//       <span className=" text-8xl flex justify-center items-center h-screen mx-auto">
-//         Error
-//       </span>
-//     );
-//   }
+  //   const role = isAdmin?.data?.role;
+  //   if (role) {
+  //     return (
+  //       <span className=" text-8xl flex justify-center items-center h-screen mx-auto">
+  //         Error
+  //       </span>
+  //     );
+  //   }
   if (isPending) {
     return (
       <span className="loading loading-dots loading-lg text-8xl flex justify-center items-center h-screen mx-auto"></span>
     );
-    }
+  }
   return (
     <div>
       <div>
@@ -65,12 +86,16 @@ const AllUsers = () => {
                       <td>{item.username}</td>
                       <td className="">{item.email}</td>
                       <td className="font-bold text-center">
-                        <Link
-                          onClick={() => handleUserRole(item.email)}
-                          className="py-3 px-4 bg-secondary text-white rounded"
-                        >
-                          User
-                        </Link>
+                        {isAdmin?.data?.role === 'admin' && item.email === user.email? (
+                          "Admin"
+                        ) : (
+                          <Link
+                            onClick={() => handleUserRole(item.email)}
+                            className="py-3 px-4 bg-secondary text-white rounded"
+                          >
+                            User
+                          </Link>
+                        )}
                       </td>
                     </tr>
                   ))}

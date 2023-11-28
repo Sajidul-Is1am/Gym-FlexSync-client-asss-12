@@ -34,7 +34,7 @@ const ApplyTrainer = () => {
       fullname: data.fullname,
       email: user?.email,
       age: data.age,
-      image: data.image,
+      image: res.image,
       skill: data.skill,
       day: data.day,
       week: data.week,

@@ -57,7 +57,7 @@ const DashBoardLayout = () => {
                       <Link to={"/dashboard/alltrainer"}>All Trainer</Link>
                     </li>
                     <li className="bg-gray-300 rounded">
-                      <Link to={"/dashboard"}>Applied Trainer</Link>
+                      <Link to={"/dashboard/appliedtrainer"}>Applied Trainer</Link>
                     </li>
                   </>
                 ) : (
