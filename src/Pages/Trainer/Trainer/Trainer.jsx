@@ -1,25 +1,27 @@
 import "./Trainer.css";
 import "../../Home/Team/Team.css";
 import Container from "../../Shared/Container";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+// import { useQuery } from "@tanstack/react-query";
+// import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import TrainerCard from "./TrainerCard";
 import BeATrainer from "../BeATrainer/BeATrainer";
+import useTrainerProfile from "../../../Hooks/useTrainerProfile";
 
 const Trainer = () => {
-  const axiosPublic = useAxiosPublic();
+  const [data,isLoading,refetch] = useTrainerProfile()
+  // const axiosPublic = useAxiosPublic();
 
-  const { data, isLoading, refetch } = useQuery({
-    queryKey: ["trainerprofile"],
-    queryFn: async () => {
-      try {
-        const trainerprofileInfo = axiosPublic.get("/user/trainerprofile");
-        return trainerprofileInfo;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  });
+  // const { data, isLoading, refetch } = useQuery({
+  //   queryKey: ["trainerprofile"],
+  //   queryFn: async () => {
+  //     try {
+  //       const trainerprofileInfo = await axiosPublic.get("/user/trainerprofile");
+  //       return trainerprofileInfo;
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   },
+  // });
   if (isLoading) {
     return (
       <span className="loading loading-dots loading-lg text-8xl flex justify-center items-center h-screen mx-auto"></span>

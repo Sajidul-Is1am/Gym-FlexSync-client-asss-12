@@ -10,6 +10,10 @@ import ApplyTrainer from "../Pages/Trainer/ApplyTrainer/ApplyTrainer";
 import Booked from "../Pages/Trainer/Booked/Booked";
 import Classes from "../Pages/Classes/Classes/Classes";
 import ClassDetails from "../Pages/Classes/ClassDetails/ClassDetails";
+import DashBoardLayout from "../Layout/MainLayout/DashBoardLayout";
+import DashHome from "../Pages/DashBoard/DashHome/DashHome";
+import AllSubscribe from "../Pages/DashBoard/AllSubscribe/AllSubscribe";
+import AllTrainer from "../Pages/DashBoard/AllTrainer/AllTrainer";
 
 const Route = createBrowserRouter([
   {
@@ -54,8 +58,26 @@ const Route = createBrowserRouter([
       },
       {
         path: "/classes/:id",
-        element:<ClassDetails></ClassDetails>
+        element: <ClassDetails></ClassDetails>,
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashBoardLayout></DashBoardLayout>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <DashHome></DashHome>,
+      },
+      {
+        path: "/dashboard/allsubscriber",
+        element: <AllSubscribe></AllSubscribe>,
+      },
+      {
+        path: '/dashboard/alltrainer',
+        element:<AllTrainer></AllTrainer>
+      }
     ],
   },
 ]);
