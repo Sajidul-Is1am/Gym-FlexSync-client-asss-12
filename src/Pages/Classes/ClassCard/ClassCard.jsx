@@ -9,7 +9,9 @@ const ClassCard = ({ classItem }) => {
 
   return (
     <div>
-      <div className="card card-compact  bg-base-100 shadow-xl">
+      <div
+        className="card card-compact  bg-base-100 shadow-xl"
+      >
         <figure>
           <img src={image} alt="Shoes" className="h-[250px] w-full" />
         </figure>

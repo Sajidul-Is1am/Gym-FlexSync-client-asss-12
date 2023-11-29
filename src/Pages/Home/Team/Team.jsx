@@ -12,7 +12,7 @@ const Team = () => {
           mainHeading={"Meet Our Trainers"}
         ></SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="teamCard">
+          <div data-aos="zoom-out" className="teamCard">
             <img src="https://i.ibb.co/sC3h5nv/Team-01.png" alt="" />
             <div className="overlay">
               <h1 className="text-h1">DAVE WOOD </h1>
@@ -43,7 +43,7 @@ const Team = () => {
               </a>
             </div>
           </div>
-          <div className="teamCard">
+          <div data-aos="zoom-out" className="teamCard">
             <img src="https://i.ibb.co/qpRbv11/Team-02.png" alt="" />
             <div className="overlay">
               <h1 className="text-h1">CATHERINE</h1>
@@ -74,7 +74,7 @@ const Team = () => {
               </a>
             </div>
           </div>
-          <div className="teamCard">
+          <div data-aos="zoom-out" className="teamCard">
             <img src="https://i.ibb.co/bJD7sc6/Team-03.png" alt="" />
             <div className="overlay">
               <h1 className="text-h1">DAVE WOOD Owner</h1>
@@ -105,7 +105,7 @@ const Team = () => {
               </a>
             </div>
           </div>
-          <div className="teamCard">
+          <div data-aos="zoom-out" className="teamCard">
             <img src="https://i.ibb.co/VYfytth/Team-04.png" alt="" />
             <div className="overlay">
               <h1 className="text-h1">DAVE WOOD Owner</h1>

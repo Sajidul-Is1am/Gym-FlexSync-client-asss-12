@@ -10,7 +10,9 @@ const Blog = () => {
           mainHeading={"FITNESS TIPS & NEWS"}
         ></SectionTitle>
         <div className=" my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="card  glass relative group overflow-hidden">
+          <div
+            data-aos="zoom-in" className="card  glass relative group overflow-hidden"
+          >
             <figure className="transition-transform transform-gpu group-hover:scale-125">
               <img
                 src="https://i.ibb.co/SvKrYZp/class-01-410x200-2x.jpg"
@@ -36,7 +38,7 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div className="card  glass relative group overflow-hidden">
+          <div data-aos="zoom-in" className="card  glass relative group overflow-hidden">
             <figure className="transition-transform transform-gpu group-hover:scale-125">
               <img
                 src="https://i.ibb.co/N2gjZFb/class-02-410x200-2x.jpg"
@@ -62,7 +64,7 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div className="card  glass relative group overflow-hidden">
+          <div data-aos="zoom-in" className="card  glass relative group overflow-hidden">
             <figure className="transition-transform transform-gpu group-hover:scale-125">
               <img
                 src="https://i.ibb.co/MngFb6D/class-03-410x200-2x.jpg"
@@ -88,7 +90,7 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div className="card  glass relative group overflow-hidden">
+          <div data-aos="zoom-in" className="card  glass relative group overflow-hidden">
             <figure className="transition-transform transform-gpu group-hover:scale-125">
               <img
                 src="https://i.ibb.co/hdMYTs3/class-05-410x200-2x.jpg"
@@ -114,7 +116,7 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div className="card  glass relative group overflow-hidden">
+          <div data-aos="zoom-in" className="card  glass relative group overflow-hidden">
             <figure className="transition-transform transform-gpu group-hover:scale-125">
               <img
                 src="https://i.ibb.co/5k3k9d0/class-04-410x200-2x.jpg"
@@ -140,7 +142,7 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div className="card  glass relative group overflow-hidden">
+          <div data-aos="zoom-in" className="card  glass relative group overflow-hidden">
             <figure className="transition-transform transform-gpu group-hover:scale-125">
               <img
                 src="https://i.ibb.co/SvKrYZp/class-01-410x200-2x.jpg"

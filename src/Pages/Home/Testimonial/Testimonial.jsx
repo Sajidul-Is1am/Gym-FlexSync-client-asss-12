@@ -11,7 +11,7 @@ const Testimonials = () => {
   return (
     <div className="bg-gradient-to-r from-indigo-200 from-10% via-sky-200 via-30% to-emerald-200 to-95% ... py-2">
       <Container>
-        <div className="md:mt-20 md:mb-32 mt-10 mb-20">
+        <div data-aos="flip-left" className="md:mt-20 md:mb-32 mt-10 mb-20">
           <SectionTitle
             subHeading={"What Our Clients Say"}
             mainHeading={"TESTIMONIALS"}
@@ -238,7 +238,6 @@ const Testimonials = () => {
                   </p>
                 </div>
               </SwiperSlide>
-              
             </Swiper>
           </div>
         </div>

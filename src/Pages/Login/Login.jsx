@@ -6,15 +6,28 @@ import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Login = () => {
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   const { handleLogin, handleGoogleLogin } = useAuth();
-  const handleGoogle = () => {
-    handleGoogleLogin();
+  const handleGoogle =  () => {
+    handleGoogleLogin()
+      .then(res =>{
+      const userInfo = {
+        username: res.user.displayName,
+        image: res.user.photoURL,
+        email: res.user.email,
+      };
+      axiosSecure.post("/user", userInfo).then((res) => {
+        console.log(res.data);
+        });
+    })
+    
     toast.success("succesfully Login");
-    navigate('/')
+    navigate("/");
   };
 
   const [isTrue, setTrue] = useState(true);

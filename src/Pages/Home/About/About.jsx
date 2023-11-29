@@ -30,7 +30,7 @@ const About = () => {
               impactful solutions and a lasting impact on those we serve."
             </p>
             <div className="p-6 bg-gray-100 rounded-xl space-y-3">
-              <div className="flex gap-3">
+              <div data-aos="fade-down" className="flex gap-3">
                 <div className="mt-2 text-secondary">
                   <RiVerifiedBadgeFill />
                 </div>
@@ -42,7 +42,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-3">
+              <div data-aos="fade-up" className="flex gap-3">
                 <div className="mt-2 text-secondary">
                   <RiVerifiedBadgeFill />
                 </div>
@@ -58,11 +58,13 @@ const About = () => {
           </div>
           <div className="md:flex hidden justify-start lg:mx-auto gap-3">
             <img
+              data-aos="fade-down"
               src="https://i.ibb.co/pjQ3xG5/fusionjpg-08-1065x1536.jpg"
               className="h-[350px] w-3/7 rounded-xl mt-10"
               alt=""
             />
             <img
+              data-aos="fade-up"
               src="https://i.ibb.co/4W1pQY0/fusionjpg-07-1065x1536.jpg"
               className="h-[350px] w-3/7 rounded-xl"
               alt=""
@@ -78,10 +80,13 @@ const About = () => {
                 alt="sample101"
               />
               <figcaption className="md:space-y-5">
-                <h3 className="md:text-4xl text-xl">
+                <h3 data-aos="fade-down" className="md:text-4xl text-xl">
                   Where Innovation Meets Personalization
                 </h3>
-                <p className="md:text-lg text-sm md:text-white text-black">
+                <p
+                  data-aos="zoom-in"
+                  className="md:text-lg text-sm md:text-white text-black"
+                >
                   But Calvin is no kind and loving god! He's one of the old
                   gods! He demands sacrifice!
                 </p>
@@ -91,7 +96,10 @@ const About = () => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 py-20 items-center justify-between">
             <div className="space-y-4">
-              <h3 className="md:text-5xl text-3xl font-bold md:pb-4 max-w-md uppercase italic">
+              <h3
+                data-aos="zoom-in"
+                className="md:text-5xl text-3xl font-bold md:pb-4 max-w-md uppercase italic"
+              >
                 Experience a different way to work out
               </h3>
               <p>
@@ -104,7 +112,7 @@ const About = () => {
             </div>
             <div>
               <div className="p-6 bg-black text-white rounded-xl space-y-3">
-                <div className="flex gap-3">
+                <div data-aos="fade-down" className="flex gap-3">
                   <div className="mt-2 text-secondary">
                     <RiVerifiedBadgeFill />
                   </div>
@@ -118,7 +126,7 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-3">
+                <div data-aos="fade-down" className="flex gap-3">
                   <div className="mt-2 text-secondary">
                     <RiVerifiedBadgeFill />
                   </div>
@@ -132,7 +140,7 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-3">
+                <div data-aos="fade-up" className="flex gap-3">
                   <div className="mt-2 text-secondary">
                     <RiVerifiedBadgeFill />
                   </div>
@@ -146,7 +154,7 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-3">
+                <div data-aos="fade-up" className="flex gap-3">
                   <div className="mt-2 text-secondary">
                     <RiVerifiedBadgeFill />
                   </div>
