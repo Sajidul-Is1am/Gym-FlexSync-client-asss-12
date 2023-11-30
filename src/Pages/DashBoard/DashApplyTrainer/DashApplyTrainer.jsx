@@ -3,19 +3,48 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 // import { Link } from "react-router-dom";
 import DashTitle from "../DashTitle/DashTitle";
 import { HiEye } from "react-icons/hi2";
-import { IoCloseSharp } from "react-icons/io5";
+import Swal from "sweetalert2";
+import useAuth from "../../../Hooks/useAuth";
+import useAllUsers from "../../../Hooks/useAllUsers";
 
 const DashApplyTrainer = () => {
   const axiosSecure = useAxiosSecure();
-  const { data } = useQuery({
+  const [users] = useAllUsers();
+  const { data, refetch } = useQuery({
     queryKey: ["dashappyed"],
     queryFn: async () => {
       const allAppliedData = axiosSecure.get("/dashboard/appliedtrainer");
       return allAppliedData;
     },
   });
+  refetch()
 
-  console.log(data?.data);
+
+
+  const handleMakeTrainer = (email) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't to Make Trainer",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Make Trainer?",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.patch(`/dashboard/trainer/${email}`).then((res) => {
+          console.log(res.data);
+          refetch();
+          Swal.fire({
+            title: "Now She/He Trainer",
+            text: "This User Is Trainer",
+            icon: "success",
+          });
+        });
+      }
+    });
+  };
+
   return (
     <div>
       <div>
@@ -41,46 +70,14 @@ const DashApplyTrainer = () => {
                   {data?.data?.map((item, index) => (
                     <tr key={index} className=" grid grid-cols-5 ">
                       <td>{item.fullname}</td>
-                      <td className="">{item.email}</td>
+                      <td className="">
+                      
+                        {item.email}</td>
                       <td className="">{item.age}</td>
-                      <td className="">Pending</td>
+                      <td>{item.role?"Trainer":<span>Pending</span>}</td>
                       <td className=" text-2xl">
-                        <HiEye
-                          onClick={() =>
-                            document.getElementById("my_modal_1").showModal()
-                          }
-                        />
+                        <HiEye onClick={() => handleMakeTrainer(item.email)} />
                       </td>
-                      <dialog id="my_modal_1" className="modal">
-                        <div className="modal-box">
-                          <div className="card card-compact ">
-                            <figure>
-                              <img
-                                src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                                alt="Shoes"
-                              />
-                            </figure>
-                            <div className="card-body">
-                              <h2 className="card-title">{item.fullname}</h2>
-                              <p>Sill : {item.skill}</p>
-                              <p>Age : {item.age}</p>
-                              <div className="card-actions justify-end">
-                                <button className="btn btn-primary">
-                                  Confirm
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="modal-action">
-                            <form method="dialog">
-                              {/* if there is a button in form, it will close the modal */}
-                              <button className="btn">
-                                <IoCloseSharp />
-                              </button>
-                            </form>
-                          </div>
-                        </div>
-                      </dialog>
                     </tr>
                   ))}
                 </tbody>

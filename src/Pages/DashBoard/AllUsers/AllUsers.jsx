@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 const AllUsers = () => {
   const { user } = useAuth()
   const [isAdmin] = useAdmin();
-  console.log(isAdmin?.data?.role);
+  // console.log(isAdmin?.data?.role);
   const axiosSecure = useAxiosSecure();
   const [users, refetch, isPending] = useAllUsers();
   const handleUserRole = (email) => {
@@ -35,7 +35,7 @@ const AllUsers = () => {
         
       }
     });
-   
+
   };
   //   const role = isAdmin?.data?.role;
   //   if (role) {
@@ -86,7 +86,11 @@ const AllUsers = () => {
                       <td>{item.username}</td>
                       <td className="">{item.email}</td>
                       <td className="font-bold text-center">
-                        {isAdmin?.data?.role === 'admin' && item.email === user.email? (
+                        {/* {isAdmin?.data?.role === 'admin' && item.email === user.email? (
+                          "Admin"
+                        ) : (
+                        )} */}
+                        {item?.role === "admin" ? (
                           "Admin"
                         ) : (
                           <Link

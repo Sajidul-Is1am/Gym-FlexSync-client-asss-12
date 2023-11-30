@@ -21,7 +21,7 @@ const Login = () => {
         image: res.user.photoURL,
         email: res.user.email,
       };
-      axiosSecure.post("/user", userInfo).then((res) => {
+      axiosSecure.patch("/user", userInfo).then((res) => {
         console.log(res.data);
         });
     })

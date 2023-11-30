@@ -1,15 +1,18 @@
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../../Hooks/useAdmin";
 import { Helmet } from "react-helmet";
+import useAllUsers from "../../Hooks/useAllUsers";
 
 const DashBoardLayout = () => {
   const [isAdmin, isAdminLoading, refetch] = useAdmin();
+  const [users] = useAllUsers();
 
+  console.log(isAdmin);
   // const role = isAdmin?.data?.role;
 
-  // if (isAdminLoading) {
-  //   <span className="loading loading-dots loading-lg text-8xl flex justify-center items-center h-screen mx-auto"></span>;
-  // }
+  if (isAdminLoading) {
+    <span className="loading loading-dots loading-lg text-8xl flex justify-center items-center h-screen mx-auto"></span>;
+  }
   // if (!role) {
   //   return (
   //     <span className="loading loading-dots loading-lg text-8xl flex justify-center items-center h-screen mx-auto"></span>
@@ -66,7 +69,7 @@ const DashBoardLayout = () => {
                       </Link>
                     </li>
                   </>
-                ) : (
+                ) :   (
                   <>
                     <li className="bg-gray-300 rounded">
                       <Link to={"/dashboard"}>Trainer Home</Link>
@@ -77,7 +80,7 @@ const DashBoardLayout = () => {
                       </Link>
                     </li>
                     <li className="bg-gray-300 rounded">
-                      <Link to={"/dashboard/alltrainer"}>Manage Slots</Link>
+                      <Link to={"/dashboard"}>Manage Slots</Link>
                     </li>
                     <li className="bg-gray-300 rounded">
                       <Link to={"/dashboard"}> Manage member</Link>
@@ -86,7 +89,7 @@ const DashBoardLayout = () => {
                       <Link to={"/dashboard"}> Add new Forum</Link>
                     </li>
                     <li className="bg-gray-300 rounded">
-                      <Link to={"/dashboard"}> Add new Class</Link>
+                        <Link to={"/dashboard"}> Add new Class</Link>
                     </li>
                   </>
                 )}
